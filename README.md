@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+# Team1515
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+A modern web application built with React and TypeScript, featuring multiple pages including Home, About, Leaders, Outreach, Contact, and Sponsors sections.
 
-Currently, two official plugins are available:
+## Technologies Used
+- React
+- TypeScript
+- Vite
+- Styled Components
+- Vercel (for deployment)
+- CMS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## CMS Features
+The website uses Contentful as a headless CMS to manage:
+- Team member profiles and leadership information
+- Outreach program details and events
+- Sponsor information and logos
+- Dynamic content updates without code changes
+- Rich text and media management
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+src/
+├── pages/
+│ ├── Home.tsx
+│ ├── About.tsx
+│ ├── Leaders.tsx
+│ ├── Outreach.tsx
+│ ├── Contact.tsx
+│ └── Sponsors.tsx
+├── styles/
+│ └── globalStyles.ts
+├── utils/
+│ └── getLeaders.ts
+└── main.tsx
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Contentful CMS account
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Installation
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Deployment
+This project is configured for deployment on Vercel. The `vercel.json` file contains the necessary configuration for deployment.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+## Contact
+s.safamovich@gmail.com
+
