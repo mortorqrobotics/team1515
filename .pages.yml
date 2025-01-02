@@ -1,0 +1,31 @@
+media: public/media
+content:
+  - name: leaders
+    label: Leaders
+    type: collection
+    path: src/_data/leaders
+    fields:
+      - name: name
+        label: Full Name
+        type: string
+        required: true
+      - name: role
+        label: Leadership Role
+        type: string
+        required: true
+      - name: description
+        label: Personal Description
+        type: text
+        required: true
+      - name: linkedin
+        label: Link to linkedin profile (optional)
+        type: string
+      - name: github
+        label: Link to github profile (optional)
+        type: string
+      - name: image
+        label: Photo of you
+        type: image
+        required: true
+        options:
+          output: public/media/leaders
