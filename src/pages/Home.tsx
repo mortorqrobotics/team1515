@@ -83,7 +83,8 @@ const CTAButton = styled(Link)`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent};
+    opacity: 0.9;
+    transform: translateY(-1px);
   }
 `;
 

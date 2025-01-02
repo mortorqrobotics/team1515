@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import SubscribePopup from './SubscribePopup';
 
 const FooterContainer = styled.footer`
   background-color: #2A2A2A;
@@ -28,37 +30,18 @@ const SectionTitle = styled.h3`
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
-const ContactForm = styled.form`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.sm};
-`;
-
-const Input = styled.input`
-  padding: ${({ theme }) => theme.spacing.sm};
-  border: 1px solid #404040;
-  border-radius: 4px;
-  background-color: #333333;
-  color: ${({ theme }) => theme.colors.secondary};
-  flex: 1;
-
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
 const SubmitButton = styled.button`
   padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
   background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.secondary};
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.lightAccent};
-    color: ${({ theme }) => theme.colors.accent};
+    opacity: 0.9;
+    transform: translateY(-1px);
   }
 `;
 
@@ -88,27 +71,28 @@ const FooterNote = styled.p`
 `;
 
 const Footer = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <FooterContainer>
       <FooterContent>
         <FooterSection>
-          <SectionTitle>Contact Us</SectionTitle>
-          <ContactForm>
-            <Input type="email" placeholder="Enter your email" />
-            <SubmitButton>Subscribe</SubmitButton>
-          </ContactForm>
+          <SectionTitle>Subscribe</SectionTitle>
+          <SubmitButton onClick={() => setIsPopupOpen(true)}>
+            Subscribe to Newsletter
+          </SubmitButton>
         </FooterSection>
 
         <FooterSection>
           <SectionTitle>Follow Us</SectionTitle>
           <SocialLinks>
-            <SocialLink href="https://facebook.com/team1515" target="_blank" rel="noopener noreferrer">
+            <SocialLink href="https://www.facebook.com/frc1515/" target="_blank" rel="noopener noreferrer">
               Facebook
             </SocialLink>
-            <SocialLink href="https://twitter.com/team1515" target="_blank" rel="noopener noreferrer">
-              Twitter
+            <SocialLink href="https://x.com/i/flow/login?redirect_after_login=%2Ffrc1515" target="_blank" rel="noopener noreferrer">
+              X (Twitter)
             </SocialLink>
-            <SocialLink href="https://instagram.com/team1515" target="_blank" rel="noopener noreferrer">
+            <SocialLink href="https://www.instagram.com/frc1515/?hl=en" target="_blank" rel="noopener noreferrer">
               Instagram
             </SocialLink>
           </SocialLinks>
@@ -116,12 +100,16 @@ const Footer = () => {
 
         <FooterSection>
           <SectionTitle>Location</SectionTitle>
-          <p>1234 Robotics Way</p>
-          <p>Los Angeles, CA 90001</p>
-          <p>Email: team1515@robotics.com</p>
+          <p>Beverly Hills High School</p>
+          <p>241 S Moreno Dr</p>
+          <p>Beverly Hills, CA 90212</p>
         </FooterSection>
       </FooterContent>
       <FooterNote>© 2024 Team 1515 Robotics. All rights reserved.</FooterNote>
+      <SubscribePopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+      />
     </FooterContainer>
   );
 };
