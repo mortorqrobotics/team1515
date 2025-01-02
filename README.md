@@ -40,7 +40,6 @@ src/
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
-- Contentful CMS account
 
 ### Installation
 1. Clone the repository
