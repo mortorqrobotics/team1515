@@ -27,5 +27,3 @@ content:
         label: Photo of you
         type: image
         required: true
-        options:
-          output: public/media/leaders
