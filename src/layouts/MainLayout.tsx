@@ -52,7 +52,7 @@ const MainLayout = () => {
         };
       case '/outreach':
         return {
-          title: "Community Outreach",
+          title: "Outreach",
           subtitle: "Empowering our community through STEM education and robotics initiatives",
           height: "60vh",
           align: "center" as const
