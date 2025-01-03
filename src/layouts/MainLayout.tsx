@@ -12,13 +12,18 @@ const LayoutWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  position: relative;
+  justify-content: space-between;
+  overflow-x: hidden;
 `;
 
 const MainContent = styled.main`
-  flex: 1;
+  flex: 1 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
+
 
 const MainLayout = () => {
   const location = useLocation();

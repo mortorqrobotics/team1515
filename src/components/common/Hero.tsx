@@ -21,7 +21,7 @@ const HeroContainer = styled.div<{ $height?: string; $backgroundImage?: string }
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  flex-shrink: 0;
 `;
 
 const Overlay = styled.div`
@@ -45,6 +45,7 @@ const Content = styled(motion.div)<{ align?: 'left' | 'center' | 'right' }>`
   width: 100%;
   max-width: 1200px;
   padding: 0 ${({ theme }) => theme.spacing.md};
+  margin: auto;
 `;
 
 const Title = styled(motion.h1)`
@@ -70,7 +71,7 @@ const Subtitle = styled(motion.p)`
   line-height: 1.8;
   font-weight: 400;
   margin-bottom: ${({ theme }) => theme.spacing.xl};
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);  
   opacity: 0.9;
 `;
 

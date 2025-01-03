@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import logo from '../assets/blacklogo.jpg';
 
 const SponsorsContainer = styled.div`
   padding: ${({ theme }) => theme.spacing.xxl} 0;
@@ -166,7 +167,7 @@ const Sponsors = () => {
             <SponsorshipTitle>Become a Sponsor</SponsorshipTitle>
             <SponsorshipContent>
               <LogoContainer>
-                <img src="/bhef-robotics-logo.png" alt="BHEF Robotics Logo" />
+                <img src={logo} alt="BHEF Robotics Logo" />
               </LogoContainer>
               
               <p>Thank you for supporting the Beverly Hills High School Robotics Team! Your donations will go directly to paying costs such as the registration fee for competitions, parts for the robot, much needed tools, and more.</p>
