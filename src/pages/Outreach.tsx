@@ -1,19 +1,8 @@
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { Section } from '../components/common/Section';
-
-interface Event {
-  id: string;
-  title: string;
-  date: string;
-  description: string;
-  imageUrl?: string;
-  location: string;
-  category: 'workshop' | 'competition' | 'community' | 'other';
-  impact?: string;
-  participants?: number;
-}
+import getOutreachEvents from '../utils/getOutreachEvents';
 
 const OutreachContainer = styled.div`
   padding: ${({ theme }) => theme.spacing.xxl} 0;
@@ -21,11 +10,15 @@ const OutreachContainer = styled.div`
 
 const EventGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: ${({ theme }) => theme.spacing.xl};
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.md};
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const EventCard = styled(motion.div)`
@@ -34,17 +27,22 @@ const EventCard = styled(motion.div)`
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  min-width: 400px;
 
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: 1024px) {
+    min-width: unset;
+  }
 `;
 
-const EventImage = styled.div<{ imageUrl?: string }>`
+const EventImage = styled.div<{ $imageUrl?: string }>`
   width: 100%;
-  height: 200px;
-  background: ${({ imageUrl, theme }) => 
-    imageUrl ? `url(${imageUrl})` : theme.colors.mediumGray};
+  height: 300px;
+  background: ${({ $imageUrl, theme }) => 
+    $imageUrl ? `url(${$imageUrl})` : theme.colors.mediumGray};
   background-size: cover;
   background-position: center;
 `;
@@ -72,13 +70,13 @@ const EventDescription = styled.p`
   margin-bottom: ${({ theme }) => theme.spacing.md};
 `;
 
-const CategoryTag = styled.span<{ category: Event['category'] }>`
+const CategoryTag = styled.span<{ $category: string }>`
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
-  background: ${({ category, theme }) => {
-    switch (category) {
+  background: ${({ $category, theme }) => {
+    switch ($category) {
       case 'workshop': return theme.colors.primary;
       case 'competition': return theme.colors.accent;
-      case 'community': return theme.colors.lightAccent;
+      case 'community': return theme.colors.primary;
       default: return theme.colors.mediumGray;
     }
   }};
@@ -88,24 +86,10 @@ const CategoryTag = styled.span<{ category: Event['category'] }>`
   text-transform: uppercase;
 `;
 
-// Temporary mock data - replace with CMS data later
-const mockEvents: Event[] = [
-  {
-    id: '1',
-    title: 'STEM Workshop for Kids',
-    date: '2024-04-15',
-    description: 'Interactive robotics workshop for elementary school students',
-    location: 'Beverly Hills Elementary',
-    category: 'workshop',
-    participants: 30,
-    impact: 'Introduced 30 students to basic robotics concepts'
-  },
-  // Add more mock events as needed
-];
-
 const Outreach = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
+  const events = useMemo(getOutreachEvents, []);
 
   const containerVariants = {
     hidden: {},
@@ -130,17 +114,17 @@ const Outreach = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {mockEvents.map((event) => (
-            <EventCard key={event.id} variants={cardVariants}>
-              <EventImage imageUrl={event.imageUrl} />
+          {events.map((event) => (
+            <EventCard key={event.key} variants={cardVariants}>
+              <EventImage $imageUrl={event.imageUrl} />
               <EventContent>
                 <EventTitle>{event.title}</EventTitle>
                 <EventMeta>
-                  <span>{new Date(event.date).toLocaleDateString()}</span>
-                  <span>{event.location}</span>
+                  {/* <span>{new Date(event.date).toLocaleDateString()}</span>
+                  <span>{event.location}</span> */}
                 </EventMeta>
                 <EventDescription>{event.description}</EventDescription>
-                <CategoryTag category={event.category}>
+                <CategoryTag $category={event.category}>
                   {event.category}
                 </CategoryTag>
               </EventContent>

@@ -9,11 +9,15 @@ const LeadersContainer = styled.div`
 
 const LeadersGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: ${({ theme }) => theme.spacing.xl};
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: ${({ theme }) => theme.spacing.md};
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LeaderCard = styled(motion.div)`
@@ -22,23 +26,29 @@ const LeaderCard = styled(motion.div)`
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  min-width: 300px;
 
   &:hover {
     transform: translateY(-5px);
+  }
+
+  @media (max-width: 1024px) {
+    min-width: unset;
   }
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 350px;
   position: relative;
   overflow: hidden;
 `;
 
-const LeaderImage = styled.img`
+const LeaderImage = styled.img<{ $position?: string }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: ${({ $position }) => $position || 'center'};
   transition: transform 0.3s ease;
 
   ${LeaderCard}:hover & {
@@ -115,7 +125,16 @@ const Leaders = () => {
         {leaders.map((leader) => (
           <LeaderCard key={leader.key} variants={cardVariants}>
             <ImageContainer>
-              <LeaderImage src={leader.image} alt={leader.name} />
+              <LeaderImage 
+                src={leader.image} 
+                alt={leader.name} 
+                $position={
+                  leader.name.includes("Yury") ? "center 20%" :
+                  leader.name.includes("Salkin") ? "center 30%" :
+                  leader.name.includes("Xander") ? "center 30%" :
+                  "center"
+                }
+              />
             </ImageContainer>
             <LeaderInfo>
               <Name>{leader.name}</Name>
