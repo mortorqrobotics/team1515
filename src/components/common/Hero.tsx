@@ -16,7 +16,7 @@ const HeroContainer = styled.div<{ $height?: string; $backgroundImage?: string }
   background-image: ${({ $backgroundImage }) => 
     $backgroundImage ? `url(${$backgroundImage})` : 'none'};
   background-size: cover;
-  background-position: center;
+  background-position: center 25%;
   position: relative;
   display: flex;
   align-items: center;

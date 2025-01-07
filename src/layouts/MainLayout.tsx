@@ -7,6 +7,7 @@ import Footer from '../components/common/Footer';
 import Hero from '../components/common/Hero';
 import PageTransition from '../components/common/PageTransition';
 import home_hero_bg from "../assets/home_hero_bg.webp";
+import leaders from '../assets/leaders.jpg';
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -61,8 +62,10 @@ const MainLayout = () => {
         return {
           title: "Our Leaders",
           subtitle: "Meet the dedicated individuals who drive our team forward",
-          height: "70vh",
-          align: "center" as const
+          backgroundImage: leaders,
+          height: "85vh",
+          align: "center" as const,
+          overlay: true
         };
       case '/sponsors':
         return {

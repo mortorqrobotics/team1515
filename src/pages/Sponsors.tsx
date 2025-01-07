@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import logo from '../assets/blacklogo.jpg';
+import { useRef, useMemo } from 'react';
+import getSponsors from '../utils/getSponsors';
 
 const SponsorsContainer = styled.div`
   padding: ${({ theme }) => theme.spacing.xxl} 0;
@@ -51,28 +51,14 @@ const SponsorDescription = styled.p`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-const sponsors = [
-  {
-    id: 1,
-    name: "Sponsor One",
-    logo: "/path-to-logo1.png", // Replace with actual logo path
-    description: "Sponsor One supports our mission to inspire students in STEM.",
-  },
-  {
-    id: 2,
-    name: "Sponsor Two",
-    logo: "/path-to-logo2.png", // Replace with actual logo path
-    description: "Sponsor Two provides resources for our robotics programs.",
-  },
-  // Add more sponsors as needed
-];
-
 const SponsorshipSection = styled(motion.div)`
   margin-top: ${({ theme }) => theme.spacing.xxl};
   padding: ${({ theme }) => theme.spacing.xl};
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: ${({ theme }) => theme.spacing.xxl} auto;
 `;
 
 const SponsorshipTitle = styled.h3`
@@ -124,6 +110,7 @@ const LogoContainer = styled.div`
 const Sponsors = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-40px" });
+  const sponsors = useMemo(() => getSponsors(), []);
 
   const containerVariants = {
     hidden: {},
@@ -139,6 +126,20 @@ const Sponsors = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  // Group sponsors by tier
+  const sponsorsByTier = useMemo(() => {
+    const tiers = ['Platinum', 'Gold', 'Silver', 'Bronze'];
+    return tiers.map(tier => ({
+      tier,
+      sponsors: sponsors.filter(sponsor => sponsor.tier === tier)
+    })).filter(group => group.sponsors.length > 0);
+  }, [sponsors]);
+
   return (
     <SponsorsContainer>
       <Section
@@ -149,27 +150,32 @@ const Sponsors = () => {
       >
         <Content>
           <Title>Our Sponsors</Title>
-          <SponsorGrid>
-            {sponsors.map((sponsor) => (
-              <SponsorCard key={sponsor.id} variants={cardVariants}>
-                <SponsorLogo src={sponsor.logo} alt={sponsor.name} />
-                <SponsorDescription>{sponsor.description}</SponsorDescription>
-              </SponsorCard>
-            ))}
-          </SponsorGrid>
+          {sponsorsByTier.map(({ tier, sponsors }) => (
+            <div key={tier}>
+              <SponsorshipTitle>{tier} Sponsors</SponsorshipTitle>
+              <SponsorGrid>
+                {sponsors.map((sponsor) => (
+                  <SponsorCard key={sponsor.key} variants={cardVariants}>
+                    <SponsorLogo src={sponsor.logo} alt={sponsor.name} />
+                    <SponsorDescription>{sponsor.description}</SponsorDescription>
+                    {sponsor.website && (
+                      <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
+                        Visit Website
+                      </a>
+                    )}
+                  </SponsorCard>
+                ))}
+              </SponsorGrid>
+            </div>
+          ))}
 
           <SponsorshipSection
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0 }
-            }}
+            variants={fadeInUpVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
             <SponsorshipTitle>Become a Sponsor</SponsorshipTitle>
             <SponsorshipContent>
-              <LogoContainer>
-                <img src={logo} alt="BHEF Robotics Logo" />
-              </LogoContainer>
-              
               <p>Thank you for supporting the Beverly Hills High School Robotics Team! Your donations will go directly to paying costs such as the registration fee for competitions, parts for the robot, much needed tools, and more.</p>
               
               <p>Donors will be acknowledged on our website at www.team1515.com, monthly newsletter, and those who donate over $1,000 will receive a spot on our team shirts (which will be seen by thousands of people at competitions).</p>

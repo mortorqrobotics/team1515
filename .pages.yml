@@ -48,3 +48,33 @@ content:
         label: Event photo
         type: image
         required: true
+  - name: sponsors
+    label: Sponsors
+    type: collection
+    path: src/_data/sponsors
+    fields:
+      - name: name
+        label: Sponsor Name
+        type: string
+        required: true
+      - name: logo
+        label: Sponsor Logo
+        type: image
+        required: true
+      - name: description
+        label: Sponsor Description
+        type: text
+        required: true
+      - name: tier
+        label: Sponsorship Tier
+        type: select
+        options:
+          - Platinum
+          - Gold
+          - Silver
+          - Bronze
+        required: true
+      - name: website
+        label: Sponsor Website
+        type: string
+        required: false

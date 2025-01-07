@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Section } from "../components/common/Section";
 import { useTheme } from 'styled-components';
+import team from "../assets/team.jpg";
 
 const HomeContainer = styled.div`
   min-height: 100vh;
@@ -41,10 +42,13 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-const ImagePlaceholder = styled.div`
+const ImagePlaceholder = styled.div<{ $imageUrl?: string; $position?: string }>`
   width: 100%;
   aspect-ratio: 16/9;
   background-color: ${({ theme }) => theme.colors.mediumGray};
+  background-image: ${({ $imageUrl }) => $imageUrl ? `url(${$imageUrl})` : 'none'};
+  background-size: cover;
+  background-position: ${({ $position }) => $position || 'center'};
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -142,7 +146,12 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ImagePlaceholder>Team Working Image</ImagePlaceholder>
+            <ImagePlaceholder 
+              $imageUrl="/path/to/image.jpg"
+              $position="center 30%"
+            >
+              Image Placeholder
+            </ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
       </Section>
@@ -160,7 +169,11 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ImagePlaceholder>Team Photo</ImagePlaceholder>
+            <ImagePlaceholder 
+              $imageUrl={team}
+              $position="center"
+            >
+            </ImagePlaceholder>
           </motion.div>
           <TextContent>
             <motion.div variants={fadeInUpVariants}>
