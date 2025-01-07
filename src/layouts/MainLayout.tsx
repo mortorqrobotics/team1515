@@ -54,28 +54,28 @@ const MainLayout = () => {
         return {
           title: "Outreach",
           subtitle: "Empowering our community through STEM education and robotics initiatives",
-          height: "60vh",
+          height: "70vh",
           align: "center" as const
         };
       case '/leaders':
         return {
           title: "Our Leaders",
           subtitle: "Meet the dedicated individuals who drive our team forward",
-          height: "60vh",
+          height: "70vh",
           align: "center" as const
         };
       case '/sponsors':
         return {
           title: "Our Sponsors",
           subtitle: "Partners in innovation who make our journey possible",
-          height: "60vh",
+          height: "70vh",
           align: "center" as const
         };
       case '/contact':
         return {
           title: "Contact Us",
           subtitle: "Get in touch with Team 1515",
-          height: "60vh",
+          height: "70vh",
           align: "center" as const
         };
       default:
