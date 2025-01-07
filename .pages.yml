@@ -27,3 +27,24 @@ content:
         label: Photo of you
         type: image
         required: true
+  - name: outreach
+    label: Outreach
+    type: collection
+    path: src/_data/outreach
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtitle 
+        type: string
+        required: false
+      - name: description
+        label: Event Description
+        type: text
+        required: true
+      - name: image
+        label: Event photo
+        type: image
+        required: true
