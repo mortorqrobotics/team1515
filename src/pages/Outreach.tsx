@@ -42,7 +42,7 @@ const EventImage = styled.div<{ $imageUrl?: string }>`
   width: 100%;
   height: 300px;
   background: ${({ $imageUrl, theme }) => 
-    $imageUrl ? `url(${$imageUrl})` : theme.colors.mediumGray};
+    $imageUrl ? `url('${$imageUrl}')` : theme.colors.mediumGray};
   background-size: cover;
   background-position: center;
 `;
