@@ -89,7 +89,7 @@ const MainLayout = () => {
         return {
           title: "Blog & Updates",
           subtitle: "Stay up to date with Team 1515's latest news, achievements, and insights",
-          height: "50vh",
+          height: "70vh",
           align: "center" as const
         };
       default:
