@@ -34,6 +34,10 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   const getHeroProps = () => {
+    if (location.pathname.startsWith('/blog/')) {
+      return null;
+    }
+
     switch (location.pathname) {
       case '/':
         return {
@@ -81,6 +85,13 @@ const MainLayout = () => {
           height: "70vh",
           align: "center" as const
         };
+      case '/blog':
+        return {
+          title: "Blog & Updates",
+          subtitle: "Stay up to date with Team 1515's latest news, achievements, and insights",
+          height: "50vh",
+          align: "center" as const
+        };
       default:
         return {
           title: "404",
@@ -91,10 +102,12 @@ const MainLayout = () => {
     }
   };
 
+  const heroProps = getHeroProps();
+
   return (
     <LayoutWrapper>
       <Navigation />
-      <Hero {...getHeroProps()} />
+      {heroProps && <Hero {...heroProps} />}
       <MainContent>
         <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
           <PageTransition key={location.pathname}>

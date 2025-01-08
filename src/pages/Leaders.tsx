@@ -95,6 +95,26 @@ const SocialLink = styled.a`
   }
 `;
 
+const InfoSection = styled(motion.div)`
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.md};
+`;
+
+const Title = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 2.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+`;
+
+const Subtitle = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
+`;
+
 const Leaders = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-40px" });
@@ -116,6 +136,19 @@ const Leaders = () => {
 
   return (
     <LeadersContainer>
+      <InfoSection
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Title>Meet Our Leadership Team</Title>
+        <Subtitle>
+          Our dedicated student leaders drive innovation, inspire excellence, and shape the future 
+          of robotics at Team 1515. Each brings unique skills and passion to help our team succeed 
+          both in competition and in our community outreach efforts.
+        </Subtitle>
+      </InfoSection>
+
       <LeadersGrid
         ref={containerRef}
         variants={containerVariants}

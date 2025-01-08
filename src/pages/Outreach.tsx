@@ -86,6 +86,49 @@ const CategoryTag = styled.span<{ $category: string }>`
   text-transform: uppercase;
 `;
 
+const InfoSection = styled(motion.div)`
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing.md};
+`;
+
+const Title = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 2.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+`;
+
+const Subtitle = styled.p`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
+`;
+
+const Stats = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${({ theme }) => theme.spacing.lg};
+  margin: ${({ theme }) => theme.spacing.xl} 0;
+`;
+
+const StatItem = styled(motion.div)`
+  text-align: center;
+`;
+
+const StatNumber = styled.div`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.accent};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
+`;
+
+const StatLabel = styled.div`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1rem;
+`;
+
 const Outreach = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
@@ -107,6 +150,39 @@ const Outreach = () => {
 
   return (
     <OutreachContainer>
+      <InfoSection
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Title>Community Outreach</Title>
+        <Subtitle>
+          At Team 1515, we are passionate about making STEM education accessible and exciting. 
+          Through hands-on workshops, mentoring programs, and participation in local events, 
+          we aim to inspire the next generation of innovators and leaders. From teaching 
+          robotics basics to middle school students to showcasing our creations at community 
+          festivals, our outreach efforts are designed to spark curiosity and empower future 
+          problem-solvers.
+        </Subtitle>
+        
+        <Stats>
+          {[
+            { number: "1000+", label: "Students Reached" },
+            { number: "10+", label: "Annual Events" },
+          ].map((stat, index) => (
+            <StatItem
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+            >
+              <StatNumber>{stat.number}</StatNumber>
+              <StatLabel>{stat.label}</StatLabel>
+            </StatItem>
+          ))}
+        </Stats>
+      </InfoSection>
+
       <Section>
         <EventGrid
           ref={containerRef}

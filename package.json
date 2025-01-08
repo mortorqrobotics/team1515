@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b --incremental false && vite build || vite build",
+    "build": "tsc -b --incremental false && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -30,6 +30,8 @@
     "globals": "^15.13.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.1",
-    "vite": "^6.0.3"
+    "vite": "^6.0.3",
+    "@types/node": "^20.11.5",
+    "vite-plugin-pwa": "^0.17.4"
   }
 }

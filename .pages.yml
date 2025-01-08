@@ -78,3 +78,46 @@ content:
         label: Sponsor Website
         type: string
         required: false
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: src/_data/blog
+    fields:
+      - name: title
+        label: Post Title
+        type: string
+        required: true
+      - name: date
+        label: Publication Date
+        type: date
+        required: true
+      - name: author
+        label: Author Name
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: select
+        options:
+          - Competition Updates
+          - Build Progress
+          - Team News
+          - Technical Articles
+          - Community Events
+        required: true
+      - name: description
+        label: Short Description
+        type: text
+        required: true
+      - name: content
+        label: Post Content
+        type: markdown
+        required: true
+      - name: image
+        label: Featured Image
+        type: image
+        required: true
+      - name: tags
+        label: Tags
+        type: list
+        required: false

@@ -205,6 +205,9 @@ const Navigation = () => {
           <NavLink to="/sponsors" $isActive={location.pathname === "/sponsors"} onClick={closeMenu}>
             Sponsors
           </NavLink>
+          <NavLink to="/blog" $isActive={location.pathname.startsWith("/blog")} onClick={closeMenu}>
+            Blog
+          </NavLink>
           <NavLink to="/contact" $isActive={location.pathname === "/contact"} onClick={closeMenu}>
             Contact
           </NavLink>

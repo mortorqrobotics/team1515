@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SubscribePopup from './SubscribePopup';
 
 const FooterContainer = styled.footer`
@@ -14,8 +15,16 @@ const FooterContent = styled.div`
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.md};
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(12, 1fr);
   gap: ${({ theme }) => theme.spacing.xl};
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const FooterSection = styled.div`
@@ -28,6 +37,28 @@ const SectionTitle = styled.h3`
   color: ${({ theme }) => theme.colors.secondary};
   font-size: 1.2rem;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
+`;
+
+const FooterLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.secondary};
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+const ExternalLink = styled.a`
+  color: ${({ theme }) => theme.colors.secondary};
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -70,42 +101,109 @@ const FooterNote = styled.p`
   margin-top: ${({ theme }) => theme.spacing.xl};
 `;
 
+const AddressText = styled.p`
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 0.9rem;
+  margin: 0;
+`;
+
+const QuickLinksSection = styled(FooterSection)`
+  grid-column: span 3;
+
+  @media (max-width: 1024px) {
+    grid-column: span 1;
+  }
+`;
+
+const ResourcesSection = styled(FooterSection)`
+  grid-column: span 3;
+
+  @media (max-width: 1024px) {
+    grid-column: span 1;
+  }
+`;
+
+const ConnectSection = styled(FooterSection)`
+  grid-column: span 3;
+
+  @media (max-width: 1024px) {
+    grid-column: 1 / -1;
+  }
+`;
+
+const ContactSection = styled(FooterSection)`
+  grid-column: span 3;
+
+  @media (max-width: 1024px) {
+    grid-column: 1 / -1;
+  }
+`;
+
 const Footer = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <FooterContainer>
       <FooterContent>
-        <FooterSection>
-          <SectionTitle>Subscribe</SectionTitle>
-          <SubmitButton onClick={() => setIsPopupOpen(true)}>
-            Subscribe to Newsletter
-          </SubmitButton>
-        </FooterSection>
+        <QuickLinksSection>
+          <SectionTitle>Quick Links</SectionTitle>
+          <FooterLink to="/">Home</FooterLink>
+          <FooterLink to="/about">About Us</FooterLink>
+          <FooterLink to="/outreach">Outreach</FooterLink>
+          <FooterLink to="/leaders">Leaders</FooterLink>
+          <FooterLink to="/sponsors">Sponsors</FooterLink>
+          <FooterLink to="/contact">Contact</FooterLink>
+        </QuickLinksSection>
 
-        <FooterSection>
-          <SectionTitle>Follow Us</SectionTitle>
+        <ResourcesSection>
+          <SectionTitle>Resources</SectionTitle>
+          <ExternalLink href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer">
+            FIRST Robotics
+          </ExternalLink>
+          <ExternalLink href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener noreferrer">
+            FRC Programs
+          </ExternalLink>
+          <FooterLink to="/sponsors#become-sponsor">Become a Sponsor</FooterLink>
+          <FooterLink to="/contact#join-team">Join Our Team</FooterLink>
+        </ResourcesSection>
+
+        <ConnectSection>
+          <SectionTitle>Connect With Us</SectionTitle>
           <SocialLinks>
             <SocialLink href="https://www.facebook.com/frc1515/" target="_blank" rel="noopener noreferrer">
               Facebook
             </SocialLink>
             <SocialLink href="https://x.com/i/flow/login?redirect_after_login=%2Ffrc1515" target="_blank" rel="noopener noreferrer">
-              X (Twitter)
+              X
             </SocialLink>
             <SocialLink href="https://www.instagram.com/frc1515/?hl=en" target="_blank" rel="noopener noreferrer">
               Instagram
             </SocialLink>
           </SocialLinks>
-        </FooterSection>
+          <SectionTitle style={{ marginTop: '1rem' }}>Newsletter</SectionTitle>
+          <SubmitButton onClick={() => setIsPopupOpen(true)}>
+            Subscribe to Newsletter
+          </SubmitButton>
+        </ConnectSection>
 
-        <FooterSection>
-          <SectionTitle>Location</SectionTitle>
-          <p>Beverly Hills High School</p>
-          <p>241 S Moreno Dr</p>
-          <p>Beverly Hills, CA 90212</p>
-        </FooterSection>
+        <ContactSection>
+          <SectionTitle>Contact Info</SectionTitle>
+          <AddressText>Beverly Hills High School</AddressText>
+          <AddressText>241 S Moreno Dr</AddressText>
+          <AddressText>Beverly Hills, CA 90212</AddressText>
+          <ExternalLink href="mailto:team1515@gmail.com">team1515@gmail.com</ExternalLink>
+          <AddressText style={{ marginTop: '1rem' }}>
+            <strong>Hours:</strong>
+          </AddressText>
+          <AddressText>Monday - Friday: 3:00 PM - 6:00 PM</AddressText>
+          <AddressText>Saturday: 9:00 AM - 5:00 PM</AddressText>
+        </ContactSection>
       </FooterContent>
-      <FooterNote>© 2024 Team 1515 Robotics. All rights reserved.</FooterNote>
+      
+      <FooterNote>
+        © {new Date().getFullYear()} Team 1515 MorTorq. All rights reserved.
+      </FooterNote>
+      
       <SubscribePopup 
         isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)} 
