@@ -8,6 +8,7 @@ image: /media/blog/welcome-post.jpg
 tags:
   - Announcements
   - Team Updates
+
 ---
 
 # Welcome to Our Team Blog!
