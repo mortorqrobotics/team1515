@@ -129,7 +129,7 @@ content:
         required: true
       - name: content
         label: Post Content
-        type: markdown
+        type: text
         required: true
       - name: image
         label: Featured Image
@@ -137,5 +137,5 @@ content:
         required: true
       - name: tags
         label: Tags
-        type: list
+        type: string
         required: false
