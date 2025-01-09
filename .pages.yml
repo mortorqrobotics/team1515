@@ -69,18 +69,14 @@ content:
         label: Sponsorship Tier
         type: select
         options:
-          Platinum:
+          - name: Platinum
             label: Platinum
-            type: string
-          Gold:
+          - name: Gold
             label: Gold
-            type: string
-          Silver:
+          - name: Silver
             label: Silver
-            type: string
-          Bronze:
+          - name: Bronze
             label: Bronze
-            type: string
         required: true
       - name: website
         label: Sponsor Website
@@ -107,21 +103,16 @@ content:
         label: Category
         type: select
         options:
-          Competition Updates:
+          - name: Competition Updates
             label: Competition Updates
-            type: string
-          Build Progress:
+          - name: Build Progress
             label: Build Progress
-            type: string
-          Team News:
+          - name: Team News
             label: Team News
-            type: string
-          Technical Articles:
+          - name: Technical Articles
             label: Technical Articles
-            type: string
-          Community Events:
+          - name: Community Events
             label: Community Events
-            type: string
         required: true
       - name: description
         label: Short Description
