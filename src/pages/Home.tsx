@@ -215,7 +215,7 @@ const Home = () => {
                   <p>Recognition for our STEM outreach programs</p>
                 </EventCard>
               </EventList>
-              <CTAButton to="/news">View All News</CTAButton>
+              <CTAButton to="/blog">View All News</CTAButton>
             </motion.div>
           </TextContent>
           <motion.div

@@ -172,7 +172,7 @@ const Contact = () => {
       const form = e.currentTarget;
       const formData = new FormData(form);
       
-      const response = await fetch('https://formsubmit.co/mortorqprogramming@gmail.com', {
+      const response = await fetch('https://formsubmit.co/1515mortorq@gmail.com', {
         method: 'POST',
         body: formData,
         headers: {
@@ -223,7 +223,7 @@ const Contact = () => {
               Fill out the form and our team will get back to you within 24 hours.
             </p>
             <div className="contact-details">
-              <p>📧 mortorqprogramming@gmail.com</p>
+              <p>📧 1515mortorq@gmail.com</p>
               <p>📍 Beverly Hills High School, 241 S Moreno Dr, Beverly Hills, CA 90212</p>
               <p>🤖 FRC Team 1515 - MorTorq</p>
             </div>
