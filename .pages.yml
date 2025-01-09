@@ -15,7 +15,7 @@ content:
         required: true
       - name: description
         label: Personal Description
-        type: text
+        type: rich-text
         required: true
       - name: linkedin
         label: Link to linkedin profile (optional)
@@ -37,12 +37,12 @@ content:
         type: string
         required: true
       - name: subtitle
-        label: Subtitle 
+        label: Subtitle (optional)
         type: string
         required: false
       - name: description
         label: Event Description
-        type: text
+        type: rich-text
         required: true
       - name: image
         label: Event photo
@@ -69,14 +69,15 @@ content:
         label: Sponsorship Tier
         type: select
         options:
-          - name: Platinum
-            label: Platinum
-          - name: Gold
-            label: Gold
-          - name: Silver
-            label: Silver
-          - name: Bronze
-            label: Bronze
+          values:
+            - value: Platinum
+              label: Platinum
+            - value: Gold
+              label: Gold
+            - value: Silver
+              label: Silver
+            - value: Bronze
+              label: Bronze
         required: true
       - name: website
         label: Sponsor Website
@@ -103,16 +104,15 @@ content:
         label: Category
         type: select
         options:
-          - name: Competition Updates
-            label: Competition Updates
-          - name: Build Progress
-            label: Build Progress
-          - name: Team News
-            label: Team News
-          - name: Technical Articles
-            label: Technical Articles
-          - name: Community Events
-            label: Community Events
+          values:
+            - value: Competition Updates
+              label: Competition Updates
+            - value: Build Progress
+              label: Build Progress
+            - value: Technical Articles
+              label: Technical Articles
+            - value: Community Events
+              label: Community Events
         required: true
       - name: description
         label: Short Description
@@ -120,7 +120,7 @@ content:
         required: true
       - name: content
         label: Post Content
-        type: text
+        type: rich-text
         required: true
       - name: image
         label: Featured Image
