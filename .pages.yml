@@ -118,10 +118,6 @@ content:
         label: Short Description
         type: text
         required: true
-      - name: content
-        label: Post Content
-        type: rich-text
-        required: true
       - name: image
         label: Featured Image
         type: image
@@ -130,3 +126,7 @@ content:
         label: Tags
         type: string
         required: false
+      - name: content
+        label: Post Content
+        type: rich-text
+        required: true
