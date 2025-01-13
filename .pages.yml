@@ -129,7 +129,7 @@ content:
       - name: slug
         label: Slug
         type: string
-        required: false
+        required: true
       - name: content
         label: Post Content
         type: rich-text
