@@ -1,4 +1,10 @@
 import { z } from 'zod';
+import fm from "front-matter";
+
+
+interface MarkdownFileContent {
+  default: string;
+}
 
 export const BlogPostSchema = z.object({
   title: z.string(),
@@ -20,28 +26,29 @@ export const BlogPostSchema = z.object({
 
 export type BlogPost = z.infer<typeof BlogPostSchema>;
 
-// This is a mock implementation that will be replaced by the CMS
-const MOCK_POSTS: BlogPost[] = [
-  {
-    title: "Welcome to Our Team Blog",
-    date: "2024-01-07",
-    author: "Team 1515",
-    category: "Team News",
-    description: "Welcome to the official Team 1515 MorTorq blog! Here we'll share our journey, achievements, and insights into the world of robotics.",
-    content: "# Welcome to Our Team Blog!\n\nWe're excited to launch...",
-    image: "/media/blog/welcome-post.jpg",
-    tags: ["Announcements", "Team Updates"],
-    slug: "welcome-to-our-blog"
-  }
-];
 
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
-  // In production, this will be replaced by the CMS data
-  return MOCK_POSTS;
+  const modules = import.meta.glob("../_data/blog/*.md", {
+    eager: true,
+    query: "?raw",
+  });
+  const blogs = Object.entries(modules).map((module) => {
+    const [path, file] = module as [string, MarkdownFileContent];
+    const { attributes } = fm(file.default);
+    console.log(attributes)
+    const blogPostInformation = BlogPostSchema.parse(attributes);
+
+    return {
+      ...blogPostInformation,
+      image: blogPostInformation.image.replace("public/", ""), // Files in the public directory are served at the root path
+      key: path,
+    };
+  });
+  return blogs;
 };
 
 export const getBlogPost = async (slug: string): Promise<BlogPost> => {
-  const post = MOCK_POSTS.find(p => p.slug === slug);
+  const post = (await getBlogPosts()).find(p => p.slug === slug);
   if (!post) {
     throw new Error('Blog post not found');
   }
