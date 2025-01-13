@@ -8,7 +8,7 @@ interface MarkdownFileContent {
 
 export const BlogPostSchema = z.object({
   title: z.string(),
-  date: z.string(),
+  date: z.date(),
   author: z.string(),
   category: z.enum([
     'Competition Updates',
@@ -20,12 +20,19 @@ export const BlogPostSchema = z.object({
   description: z.string(),
   content: z.string(),
   image: z.string(),
-  tags: z.array(z.string()).optional(),
-  slug: z.string().optional()
+  tags: z.string().optional()
 });
 
-export type BlogPost = z.infer<typeof BlogPostSchema>;
+export type BlogPost = z.infer<typeof BlogPostSchema> & {slug: string};
 
+function slugify(str: string) {
+  str = str.replace(/^\s+|\s+$/g, ''); // trim leading/trailing white space
+  str = str.toLowerCase(); // convert string to lowercase
+  str = str.replace(/[^a-z0-9 -]/g, '') // remove any non-alphanumeric characters
+           .replace(/\s+/g, '-') // replace spaces with hyphens
+           .replace(/-+/g, '-'); // remove consecutive hyphens
+  return str;
+}
 
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const modules = import.meta.glob("../_data/blog/*.md", {
@@ -35,16 +42,30 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const blogs = Object.entries(modules).map((module) => {
     const [path, file] = module as [string, MarkdownFileContent];
     const { attributes } = fm(file.default);
-    console.log(attributes)
     const blogPostInformation = BlogPostSchema.parse(attributes);
-
     return {
-      ...blogPostInformation,
-      image: blogPostInformation.image.replace("public/", ""), // Files in the public directory are served at the root path
-      key: path,
+        ...blogPostInformation,
+        image: blogPostInformation.image.replace("public/", ""), // Files in the public directory are served at the root path
+        key: path,
+    }
+  })
+
+
+
+
+  const blogsToReturn = blogs.map((blog) => {
+    let slug =  slugify(blog.title);
+    const count = blogs.filter(b => slugify(b.title) === slug).length;
+    if(count > 1) {
+      slug += (count + 1)
+    } 
+    console.log(count)
+    return {
+      ...blog,
+      slug
     };
-  });
-  return blogs;
+  })
+  return blogsToReturn;
 };
 
 export const getBlogPost = async (slug: string): Promise<BlogPost> => {

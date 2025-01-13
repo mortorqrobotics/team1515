@@ -271,7 +271,7 @@ const BlogPost = () => {
         
         {post.tags && post.tags.length > 0 && (
           <Tags>
-            {post.tags.map(tag => (
+            {post.tags.split(",").map(tag => (
               <Tag key={tag}>{tag}</Tag>
             ))}
           </Tags>
