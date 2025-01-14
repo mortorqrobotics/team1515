@@ -17,9 +17,14 @@ const PostWrapper = styled(motion.div)`
 
 const PostContainer = styled.article`
   max-width: 800px;
-  margin: 0 auto;
   width: 100%;
-  margin: 100px auto;
+  margin: 100px 0;
+  padding: ${({ theme }) => theme.spacing.md};
+  
+  @media (max-width: 400px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+    text-align: center;
+  }
 `;
 
 const PostHeader = styled.div`
@@ -52,6 +57,11 @@ const Meta = styled.div`
   font-size: 0.9rem;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const Category = styled.span`
@@ -97,12 +107,14 @@ const Content = styled.div`
     font-size: clamp(1.4rem, 3vw, 1.8rem);
     margin: ${({ theme }) => `${theme.spacing.lg} 0 ${theme.spacing.md}`};
     font-weight: 700;
+    text-align: center;
   }
 
   h3 {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     margin: ${({ theme }) => `${theme.spacing.lg} 0 ${theme.spacing.md}`};
     font-weight: 600;
+    text-align: center;
   }
 
   h4 {
@@ -138,9 +150,7 @@ const Content = styled.div`
   }
 
   @media (max-width: 768px) {
-    ul, ol {
-      padding-left: ${({ theme }) => theme.spacing.md};
-    }
+    padding: ${({ theme }) => theme.spacing.sm};
   }
 
   a {

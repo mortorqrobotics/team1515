@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 import { BlogPost, getBlogPosts } from '../utils/getBlogPosts';
 import BlogCard from '../components/blog/BlogCard';
 
 const BlogContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.xxl} 0;
 `;
 
-const Grid = styled.div`
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+`;
+
+const BlogGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: ${({ theme }) => theme.spacing.xl};
-  margin-top: ${({ theme }) => theme.spacing.xl};
-`;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the grid */
+  padding: 0 ${({ theme }) => theme.spacing.md};
 
-const FilterContainer = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.md};
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
-  flex-wrap: wrap;
-`;
-
-const FilterButton = styled.button<{ $isActive: boolean }>`
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
-  background: ${({ $isActive, theme }) => 
-    $isActive ? theme.colors.primary : 'transparent'};
-  color: ${({ $isActive, theme }) => 
-    $isActive ? 'white' : theme.colors.text};
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary};
-    color: white;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
   }
 `;
 
@@ -49,7 +34,6 @@ const EmptyState = styled.div`
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -67,48 +51,19 @@ const Blog = () => {
     loadPosts();
   }, []);
 
-  const categories = Array.from(
-    new Set(posts.map(post => post.category))
-  );
-
-  const filteredPosts = selectedCategory
-    ? posts.filter(post => post.category === selectedCategory)
-    : posts;
-
   return (
     <BlogContainer>
-      <FilterContainer>
-        <FilterButton
-          $isActive={!selectedCategory}
-          onClick={() => setSelectedCategory(null)}
-        >
-          All Posts
-        </FilterButton>
-        {categories.map(category => (
-          <FilterButton
-            key={category}
-            $isActive={selectedCategory === category}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </FilterButton>
-        ))}
-      </FilterContainer>
-
+      <Title>Our Blog</Title>
       {loading ? (
         <EmptyState>Loading posts...</EmptyState>
-      ) : filteredPosts.length > 0 ? (
-        <Grid>
-          {filteredPosts.map(post => (
+      ) : posts.length > 0 ? (
+        <BlogGrid>
+          {posts.map(post => (
             <BlogCard key={post.slug} post={post} />
           ))}
-        </Grid>
+        </BlogGrid>
       ) : (
-        <EmptyState>
-          {selectedCategory 
-            ? `No posts found in ${selectedCategory} category.`
-            : 'No blog posts found.'}
-        </EmptyState>
+        <EmptyState>No blog posts found.</EmptyState>
       )}
     </BlogContainer>
   );

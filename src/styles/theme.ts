@@ -27,7 +27,7 @@ export const theme: Theme = {
     background: '#FFFFFF',
     text: '#333333',
     lightAccent: '#FFF3E0',
-    mediumGray: '#E0E0E0',
+    mediumGray: '#8d8d8d',
     bgColor: 'transparent',
     success: '#28A745'
   },
