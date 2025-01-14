@@ -10,6 +10,9 @@ import home_hero_bg from "../assets/home_hero_bg.webp";
 import leaders from '../assets/leaders-min.jpg';
 import abb from "../assets/lowtaperfade.jpeg"
 import abb2 from "../assets/LAR2023_DAY_02_1770-min.jpg"
+import abb3 from "../assets/sponsors.jpg"
+import abb4 from "../assets/contact.jpg"
+import abb5 from "../assets/logo.jpg"
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -80,22 +83,28 @@ const MainLayout = () => {
         return {
           title: "Our Sponsors",
           subtitle: "Partners in innovation who make our journey possible",
-          height: "70vh",
-          align: "center" as const
+          height: "90vh",
+          align: "center" as const,
+          backgroundImage: abb3,
+          overlay: true
         };
       case '/contact':
         return {
           title: "Contact Us",
-          subtitle: "Get in touch with Team 1515",
-          height: "70vh",
-          align: "center" as const
+          subtitle: "Get in touch with Team 1515",  
+          height: "90vh",
+          align: "center" as const,
+          backgroundImage: abb4,
+          overlay: true
         };
       case '/blog':
         return {
           title: "Blog & Updates",
           subtitle: "Stay up to date with Team 1515's latest news, achievements, and insights",
-          height: "70vh",
-          align: "center" as const
+          height: "80vh",
+          align: "center" as const,
+          backgroundImage: abb5,
+          overlay: true
         };
       default:
         return {
