@@ -38,11 +38,6 @@ const SponsorCard = styled(motion.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: ${({ theme }) => theme.spacing.md};
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 `;
 
 const SponsorLogo = styled.img`
@@ -133,6 +128,11 @@ const Sponsors = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   // Group sponsors by tier
   const sponsorsByTier = useMemo(() => {
     const tiers = ['Platinum', 'Gold', 'Silver', 'Bronze'];
@@ -170,6 +170,32 @@ const Sponsors = () => {
               </SponsorGrid>
             </div>
           ))}
+
+          <SponsorshipSection
+            variants={fadeInUpVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <SponsorshipTitle>Become a Sponsor</SponsorshipTitle>
+            <SponsorshipContent>
+              <p>Thank you for supporting the Beverly Hills High School Robotics Team! Your donations will go directly to paying costs such as the registration fee for competitions, parts for the robot, much needed tools, and more.</p>
+              
+              <p>Donors will be acknowledged on our website at www.team1515.com, monthly newsletter, and those who donate over $1,000 will receive a spot on our team shirts (which will be seen by thousands of people at competitions).</p>
+              
+              <p>Matching gifts are an essential part of our fundraising efforts, so please be sure to check if your employer offers matching contributions.</p>
+              
+              <p>If you wish to pay by check, please make the check payable to "BHEF" with a notation to direct your contribution to the Robotics Team and mail it to:</p>
+              <p style={{ fontWeight: 'bold' }}>624 North Rexford Drive, Beverly Hills, CA 90210</p>
+
+              <DonationButton 
+                href="https://www.bhef.org/apps/form/bhhsrobotics"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Donate Now
+              </DonationButton>
+            </SponsorshipContent>
+          </SponsorshipSection>
         </Content>
       </Section>
     </SponsorsContainer>

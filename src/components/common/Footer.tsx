@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SubscribePopup from './SubscribePopup';
-import ContactPopup from './ContactPopup';
 
 const FooterContainer = styled.footer`
   background-color: #2A2A2A;
@@ -224,7 +223,6 @@ const Footer = () => {
         isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)} 
       />
-      <ContactPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </FooterContainer>
   );
 };
