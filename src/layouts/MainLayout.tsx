@@ -12,7 +12,7 @@ import abb from "../assets/lowtaperfade.jpeg"
 import abb2 from "../assets/LAR2023_DAY_02_1770-min.jpg"
 import abb3 from "../assets/sponsors.jpg"
 import abb4 from "../assets/contact.jpg"
-import abb5 from "../assets/logo.jpg"
+import abb5 from "../assets/blogbg.jpg"
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;

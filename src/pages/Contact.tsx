@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Section } from '../components/common/Section';
-import ContactPopup from '../components/common/ContactPopup';
 
 const ContactContainer = styled.div`
   padding: 1rem;
@@ -313,7 +312,6 @@ const Contact = () => {
         </Content>
       </Section>
 
-      <ContactPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </ContactContainer>
   );
 };

@@ -230,7 +230,7 @@ const Home = () => {
             <ImagePlaceholder
               $imageUrl={abb2}
               $position="center"
-            >Achievement Image</ImagePlaceholder>
+            ></ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
       </Section>
@@ -251,7 +251,7 @@ const Home = () => {
             <ImagePlaceholder 
               $imageUrl={abb}
               $position="center"
-            >Competition Image</ImagePlaceholder>
+            ></ImagePlaceholder>
           </motion.div>
           <TextContent>
             <motion.div variants={fadeInUpVariants}>
@@ -306,7 +306,7 @@ const Home = () => {
             <ImagePlaceholder
               $imageUrl={abb4}
               $position="center"
-            >Sponsor Logos</ImagePlaceholder>
+            ></ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
       </Section>
