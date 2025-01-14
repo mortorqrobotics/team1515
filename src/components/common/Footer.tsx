@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SubscribePopup from './SubscribePopup';
+import ContactPopup from './ContactPopup';
 
 const FooterContainer = styled.footer`
   background-color: #2A2A2A;
@@ -139,6 +140,21 @@ const ContactSection = styled(FooterSection)`
   }
 `;
 
+const ContactButton = styled.button`
+  margin-top: 1rem;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
 const Footer = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -208,6 +224,7 @@ const Footer = () => {
         isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)} 
       />
+      <ContactPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </FooterContainer>
   );
 };

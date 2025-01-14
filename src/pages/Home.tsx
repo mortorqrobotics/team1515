@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { Section } from "../components/common/Section";
 import { useTheme } from 'styled-components';
 import team from "../assets/team.jpg";
+import abb from "../assets/maxresdefault.jpg";
+import abb2 from "../assets/Awards1_d.png";
+import abb3 from "../assets/LAR2023_DAY_02_1771-min.jpg";
+import abb4 from "../assets/sponsors.jpg";
 
 const HomeContainer = styled.div`
   min-height: 100vh;
@@ -147,10 +151,9 @@ const Home = () => {
             }}
           >
             <ImagePlaceholder 
-              $imageUrl="/path/to/image.jpg"
+              $imageUrl={abb3}
               $position="center 30%"
             >
-              Image Placeholder
             </ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
@@ -207,12 +210,12 @@ const Home = () => {
               </Description>
               <EventList>
                 <EventCard>
-                  <h3>Regional Champions 2023</h3>
-                  <p>First place in the Los Angeles Regional Competition</p>
+                  <h3>2023 Team Sustainability Award</h3>
+                  <p>Received at the Los Angeles Regional</p>
                 </EventCard>
                 <EventCard>
-                  <h3>Community Impact Award</h3>
-                  <p>Recognition for our STEM outreach programs</p>
+                  <h3>Middle School Outreach</h3>
+                  <p>Engaging with local schools to promote STEM</p>
                 </EventCard>
               </EventList>
               <CTAButton to="/blog">View All News</CTAButton>
@@ -224,7 +227,10 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ImagePlaceholder>Achievement Image</ImagePlaceholder>
+            <ImagePlaceholder
+              $imageUrl={abb2}
+              $position="center"
+            >Achievement Image</ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
       </Section>
@@ -242,7 +248,10 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ImagePlaceholder>Competition Image</ImagePlaceholder>
+            <ImagePlaceholder 
+              $imageUrl={abb}
+              $position="center"
+            >Competition Image</ImagePlaceholder>
           </motion.div>
           <TextContent>
             <motion.div variants={fadeInUpVariants}>
@@ -252,12 +261,12 @@ const Home = () => {
               </Description>
               <EventList>
                 <EventCard>
-                  <h3>Regional Competition 2024</h3>
-                  <p>March 15-17, 2024 at Los Angeles Convention Center</p>
+                  <h3>Los Angeles Regional</h3>
+                  <p>March 13-16, 2025</p>
                 </EventCard>
                 <EventCard>
-                  <h3>Community STEM Workshop</h3>
-                  <p>April 5, 2024 at Beverly Hills High School</p>
+                  <h3>Aerospace Valley Regional</h3>
+                  <p>April 2-5, 2025</p>
                 </EventCard>
               </EventList>
               <SectionHighlight>
@@ -278,16 +287,14 @@ const Home = () => {
         <AnimatedContent>
           <TextContent>
             <motion.div variants={fadeInUpVariants}>
-              <Title>Our Sponsors</Title>
+              <Title>Outreach and Impact</Title>
               <Description>
-                Team 1515 extends heartfelt gratitude to our sponsors for their
-                invaluable support. Your partnership fuels our success and
-                inspires our future.
+                We work with FCLA to teach special needs kids about robotics and organize donation drives to assist the LA homeless population.
               </Description>
               <SectionHighlight>
-                Interested in becoming a sponsor? We'd love to hear from you!
+                Interested in joining our outreach efforts? We'd love to hear from you!
               </SectionHighlight>
-              <CTAButton to="/sponsors">Become a Sponsor</CTAButton>
+              <CTAButton to="/outreach">Get Involved</CTAButton>
             </motion.div>
           </TextContent>
           <motion.div
@@ -296,7 +303,10 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ImagePlaceholder>Sponsor Logos</ImagePlaceholder>
+            <ImagePlaceholder
+              $imageUrl={abb4}
+              $position="center"
+            >Sponsor Logos</ImagePlaceholder>
           </motion.div>
         </AnimatedContent>
       </Section>

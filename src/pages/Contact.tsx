@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Section } from '../components/common/Section';
+import ContactPopup from '../components/common/ContactPopup';
 
 const ContactContainer = styled.div`
   padding: 1rem;
@@ -163,6 +164,7 @@ const Contact = () => {
   const isInView = useInView(sectionRef, { once: true });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -310,6 +312,8 @@ const Contact = () => {
           </ContactForm>
         </Content>
       </Section>
+
+      <ContactPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </ContactContainer>
   );
 };

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '../components/common/Navigation';
 import Footer from '../components/common/Footer';
 import Hero from '../components/common/Hero';
 import PageTransition from '../components/common/PageTransition';
 import home_hero_bg from "../assets/home_hero_bg.webp";
 import leaders from '../assets/leaders.jpg';
+import abb from "../assets/lowtaperfade.jpeg"
+import abb2 from "../assets/LAR2023_DAY_02_1770-min.jpg"
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -52,15 +54,18 @@ const MainLayout = () => {
           title: "About MORTORQ",
           subtitle: "Since 2004, Team 1515 has been inspiring innovation and fostering the next generation of STEM leaders.",
           overlay: true,
-          height: "70vh",
-          align: "center" as const
+          height: "90vh",
+          align: "center" as const,
+          backgroundImage: abb2
         };
       case '/outreach':
         return {
           title: "Outreach",
           subtitle: "Empowering our community through STEM education and robotics initiatives",
-          height: "70vh",
-          align: "center" as const
+          height: "85vh",
+          align: "center" as const,
+          backgroundImage: abb,
+          overlay: true
         };
       case '/leaders':
         return {
