@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://team1515.org/sitemap.xml 
+Sitemap: https://team1515.com/sitemap.xml 

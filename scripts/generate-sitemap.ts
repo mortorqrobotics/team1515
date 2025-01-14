@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://team1515.org';
+const SITE_URL = 'https://team1515.com';
 
 const routes = [
   '/',
@@ -9,7 +9,8 @@ const routes = [
   '/outreach',
   '/leaders',
   '/sponsors',
-  '/contact'
+  '/contact',
+  '/blog'
 ];
 
 const generateSitemap = () => {
