@@ -126,6 +126,10 @@ content:
         label: Tags
         type: string
         required: false
+      - name: slug
+        label: Slug
+        type: string
+        required: true
       - name: content
         label: Post Content
         type: rich-text
