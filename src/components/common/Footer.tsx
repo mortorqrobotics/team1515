@@ -206,7 +206,7 @@ const Footer = () => {
           <AddressText>Beverly Hills High School</AddressText>
           <AddressText>241 S Moreno Dr</AddressText>
           <AddressText>Beverly Hills, CA 90212</AddressText>
-          <ExternalLink href="mailto:team1515@gmail.com">team1515@gmail.com</ExternalLink>
+          <ExternalLink href="mailto:1515mortorq@gmail.com">1515mortorq@gmail.com</ExternalLink>
           <AddressText style={{ marginTop: '1rem' }}>
             <strong>Hours:</strong>
           </AddressText>
