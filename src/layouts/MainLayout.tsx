@@ -7,7 +7,7 @@ import Footer from '../components/common/Footer';
 import Hero from '../components/common/Hero';
 import PageTransition from '../components/common/PageTransition';
 import home_hero_bg from "../assets/home_hero_bg.webp";
-import leaders from '../assets/leaders.jpg';
+import leaders from '../assets/leaders-min.jpg';
 import abb from "../assets/lowtaperfade.jpeg"
 import abb2 from "../assets/LAR2023_DAY_02_1770-min.jpg"
 
