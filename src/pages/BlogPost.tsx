@@ -7,7 +7,11 @@ import OptimizedImage from '../components/common/OptimizedImage';
 
 const PostWrapper = styled(motion.div)`
   background: ${({ theme }) => theme.colors.background};
+  margin: 100px auto;
   min-height: 100vh;
+  display: flex; /* Use flexbox to center content */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
   padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.md}`};
 
   @media (max-width: 768px) {
@@ -18,8 +22,10 @@ const PostWrapper = styled(motion.div)`
 const PostContainer = styled.article`
   max-width: 800px;
   width: 100%;
-  margin: 100px 0;
   padding: ${({ theme }) => theme.spacing.md};
+  display: flex; /* Use flexbox for inner content */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
   
   @media (max-width: 400px) {
     padding: ${({ theme }) => theme.spacing.sm};
@@ -291,4 +297,4 @@ const BlogPost = () => {
   );
 };
 
-export default BlogPost; 
+export default BlogPost;
