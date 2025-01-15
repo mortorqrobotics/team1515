@@ -38,6 +38,11 @@ const SponsorCard = styled(motion.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: ${({ theme }) => theme.spacing.md};
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `;
 
 const SponsorLogo = styled.img`

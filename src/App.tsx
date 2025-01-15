@@ -8,7 +8,6 @@ import About from './pages/About';
 import Outreach from './pages/Outreach';
 import Leaders from './pages/Leaders';
 import Sponsors from './pages/Sponsors';
-import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 
@@ -24,7 +23,6 @@ function App() {
             <Route path="outreach" element={<Outreach />} />
             <Route path="leaders" element={<Leaders />} />
             <Route path="sponsors" element={<Sponsors />} />
-            <Route path="contact" element={<Contact />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
           </Route>

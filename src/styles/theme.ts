@@ -5,6 +5,7 @@ export interface Theme {
     accent: string;
     background: string;
     text: string;
+    textLight: string;
     lightAccent: string;
     mediumGray: string;
     bgColor?: string;
@@ -26,6 +27,7 @@ export const theme: Theme = {
     accent: '#000000',
     background: '#FFFFFF',
     text: '#333333',
+    textLight: '#666666',
     lightAccent: '#FFF3E0',
     mediumGray: '#8d8d8d',
     bgColor: 'transparent',

@@ -43,6 +43,11 @@ const MainLayout = () => {
       return null;
     }
 
+    const defaultAnimation = {
+      title: { opacity: [0, 1], transition: { duration: 0.8, ease: "easeOut" } },
+      subtitle: { opacity: [0, 1], transition: { delay: 0.3, duration: 0.8, ease: "easeOut" } }
+    };
+
     switch (location.pathname) {
       case '/':
         return {
@@ -51,6 +56,7 @@ const MainLayout = () => {
           backgroundImage: home_hero_bg,
           overlay: true,
           height: "100vh",
+          animate: defaultAnimation
         };
       case '/about':
         return {
@@ -59,7 +65,8 @@ const MainLayout = () => {
           overlay: true,
           height: "90vh",
           align: "center" as const,
-          backgroundImage: abb2
+          backgroundImage: abb2,
+          animate: defaultAnimation
         };
       case '/outreach':
         return {
@@ -68,34 +75,18 @@ const MainLayout = () => {
           height: "85vh",
           align: "center" as const,
           backgroundImage: abb,
-          overlay: true
+          overlay: true,
+          animate: defaultAnimation
         };
       case '/leaders':
         return {
-          title: "Our Leaders",
+          title: "Our Team",
           subtitle: "Meet the dedicated individuals who drive our team forward",
           backgroundImage: leaders,
           height: "85vh",
           align: "center" as const,
-          overlay: true
-        };
-      case '/sponsors':
-        return {
-          title: "Our Sponsors",
-          subtitle: "Partners in innovation who make our journey possible",
-          height: "90vh",
-          align: "center" as const,
-          backgroundImage: abb3,
-          overlay: true
-        };
-      case '/contact':
-        return {
-          title: "Contact Us",
-          subtitle: "Get in touch with Team 1515",  
-          height: "90vh",
-          align: "center" as const,
-          backgroundImage: abb4,
-          overlay: true
+          overlay: true,
+          animate: defaultAnimation
         };
       case '/blog':
         return {
@@ -104,14 +95,26 @@ const MainLayout = () => {
           height: "80vh",
           align: "center" as const,
           backgroundImage: abb5,
-          overlay: true
+          overlay: true,
+          animate: defaultAnimation
+        };
+      case '/sponsors':
+        return {
+          title: "Sponsors",
+          subtitle: "Thank you to our generous sponsors for their support",
+          height: "80vh",
+          align: "center" as const,
+          backgroundImage: abb3,
+          overlay: true,
+          animate: defaultAnimation
         };
       default:
         return {
           title: "404",
           subtitle: "Page not found",
           height: "50vh",
-          align: "center" as const
+          align: "center" as const,
+          animate: defaultAnimation
         };
     }
   };

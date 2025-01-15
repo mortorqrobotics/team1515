@@ -4,18 +4,27 @@ import { useRef } from 'react';
 import { useTheme } from 'styled-components';
 
 const AboutContainer = styled.div`
-  padding: ${({ theme }) => theme.spacing.xxl} 0;
+  padding: ${({ theme }) => theme.spacing.xl} 0;
 `;
 
 const Section = styled(motion.section)<{ $bgColor?: string }>`
-  padding: ${({ theme }) => theme.spacing.xl} 0;
+  padding: ${({ theme }) => theme.spacing.xxl} 0;
   background-color: ${({ $bgColor }) => $bgColor || 'transparent'};
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: ${({ theme }) => theme.spacing.xxl};
+  }
 `;
 
 const Content = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.md};
+
+  @media (max-width: 768px) {
+    padding: 0 ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 // Reusing animation variants from Home page
@@ -104,6 +113,7 @@ const About = () => {
         variants={staggerChildren}
       >
         <Content variants={fadeInUpVariants}>
+          <Title>About Team 1515</Title>
           <Text>
             Welcome to Team 1515 MorTorq Robotics, the robotics team from Beverly Hills High School! 
             Founded in 2004, we are proud participants in the FIRST Robotics Competition (FRC), 
@@ -126,7 +136,7 @@ const About = () => {
         $bgColor={theme.colors.lightAccent}
       >
         <Content variants={fadeInUpVariants}>
-          <Title>What We Stand For</Title>
+          <Title>Our Values</Title>
           <Grid>
             {['Innovation', 'Teamwork', 'Education', 'Community'].map((value, index) => (
               <ValueCard
@@ -161,7 +171,7 @@ const About = () => {
         variants={staggerChildren}
       >
         <Content variants={fadeInUpVariants}>
-          <Title>Our Achievements</Title>
+          <Title>Our History</Title>
           <Text>
             Since our founding, Team 1515 has earned numerous awards for technical excellence, 
             creativity, and outreach efforts. From building high-performing robots to mentoring 
