@@ -183,74 +183,116 @@ const ContactForm = styled(motion.form)`
   background: white;
   padding: ${({ theme }) => theme.spacing.xl};
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${({ theme }) => `${theme.colors.mediumGray}20`};
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
 `;
 
-const FormGroup = styled.div`
+const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
 `;
 
 const Label = styled.label`
-  font-weight: 500;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.text};
-  font-size: 0.9rem;
+  font-size: 1rem;
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
 `;
 
 const Input = styled.input`
   padding: ${({ theme }) => theme.spacing.md};
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 12px;
+  border: 2px solid ${({ theme }) => theme.colors.mediumGray};
+  border-radius: 8px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: white;
   
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
-    box-shadow: 0 0 0 3px ${({ theme }) => `${theme.colors.primary}20`};
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: 0 0 0 3px ${({ theme }) => `${theme.colors.accent}30`};
+    transform: translateY(-2px);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.mediumGray};
+    background-color: ${({ theme }) => `${theme.colors.mediumGray}20`};
     cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.mediumGray};
   }
 `;
 
 const TextArea = styled.textarea`
   padding: ${({ theme }) => theme.spacing.md};
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 12px;
+  border: 2px solid ${({ theme }) => theme.colors.mediumGray};
+  border-radius: 8px;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: white;
   
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.primary};
-    box-shadow: 0 0 0 3px ${({ theme }) => `${theme.colors.primary}20`};
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: 0 0 0 3px ${({ theme }) => `${theme.colors.accent}30`};
+    transform: translateY(-2px);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.mediumGray};
+    background-color: ${({ theme }) => `${theme.colors.mediumGray}20`};
     cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.mediumGray};
   }
 `;
 
 const SubmitButton = styled(motion.button)`
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.lg}`};
-  background-color: ${({ theme }) => theme.colors.primary};
+  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
+  background-color: ${({ theme }) => theme.colors.accent};
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
 
   &:hover:not(:disabled) {
-    opacity: 0.9;
+    background-color: ${({ theme }) => theme.colors.primary};
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px ${({ theme }) => `${theme.colors.accent}50`};
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px ${({ theme }) => `${theme.colors.accent}40`};
   }
 
   &:disabled {
@@ -429,12 +471,6 @@ const StatusMessage = styled.div<{ $success?: boolean }>`
   background-color: ${({ theme, $success }) => 
     $success ? theme.colors.success : '#dc3545'};
   color: white;
-`;
-
-const InputGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
 `;
 
 const Home = () => {
