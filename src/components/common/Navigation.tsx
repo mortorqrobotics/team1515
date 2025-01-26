@@ -128,7 +128,7 @@ const Overlay = styled.div<{ $isOpen: boolean }>`
 `;
 
 const NavLink = styled(motion(Link))<{ $isActive?: boolean }>`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
