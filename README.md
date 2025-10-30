@@ -65,6 +65,6 @@ This project is configured for deployment on Vercel. The `vercel.json` file cont
 5. Open a Pull Request
 
 
-## Contact
-s.safamovich@gmail.com
+
+
 
