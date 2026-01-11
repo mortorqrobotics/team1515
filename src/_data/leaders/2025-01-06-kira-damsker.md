@@ -1,9 +1,12 @@
 ---
-name: Kira Damsker
-role: Safety Captain
-description: >
-  My name is Kira and this is my second year on the team. I am the safety
-  captain and a sophomore. I wanted to join robotics because I love working on
-  robots and am interested in safety.
-image: /public/media/leaders/kira
+name: Isabel Lo
+role: Machine Specialist
+description: Hi, my name is Isabel Lo. I'm a junior and the machine specialist
+  for Mortorq. This is my third year on the team and my role is to oversee the
+  operation of machine tools in the workshop. My objective on the team this year
+  is to make sure that everyone on the team is sufficiently trained on all
+  machinery, while providing team members with hands-on engineering experiences
+  and manufacturing skills that can be used in the real world. I'm excited to
+  see what we will get to build this year!
+image: /public/media/NZF_6033.jpg
 ---
