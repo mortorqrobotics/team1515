@@ -203,7 +203,7 @@ const Label = styled.label`
   font-weight: 600;
   color: ${({ theme }) => theme.colors.text};
   font-size: 1rem;
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 const Input = styled.input`
