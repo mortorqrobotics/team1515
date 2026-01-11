@@ -39,9 +39,9 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   const getHeroProps = () => {
-    if (location.pathname.startsWith('/blog/')) {
-      return null;
-    }
+    // if (location.pathname.startsWith('/blog/')) {
+    //   return null;
+    // }
 
     const defaultAnimation = {
       title: { opacity: [0, 1], transition: { duration: 0.8, ease: "easeOut" } },
@@ -88,16 +88,16 @@ const MainLayout = () => {
           overlay: true,
           animate: defaultAnimation
         };
-      case '/blog':
-        return {
-          title: "Blog & Updates",
-          subtitle: "Stay up to date with Team 1515's latest news, achievements, and insights",
-          height: "80vh",
-          align: "center" as const,
-          backgroundImage: abb5,
-          overlay: true,
-          animate: defaultAnimation
-        };
+      // case '/blog':
+      //   return {
+      //     title: "Blog & Updates",
+      //     subtitle: "Stay up to date with Team 1515's latest news, achievements, and insights",
+      //     height: "80vh",
+      //     align: "center" as const,
+      //     backgroundImage: abb5,
+      //     overlay: true,
+      //     animate: defaultAnimation
+      //   };
       case '/sponsors':
         return {
           title: "Sponsors",

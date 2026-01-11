@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SubscribePopup from './SubscribePopup';
 
 const FooterContainer = styled.footer`
   background-color: #2A2A2A;
@@ -58,21 +56,6 @@ const ExternalLink = styled.a`
   
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const SubmitButton = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
   }
 `;
 
@@ -155,8 +138,6 @@ const ContactButton = styled.button`
 `;
 
 const Footer = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
   return (
     <FooterContainer>
       <FooterContent>
@@ -195,10 +176,6 @@ const Footer = () => {
               Instagram
             </SocialLink>
           </SocialLinks>
-          <SectionTitle style={{ marginTop: '1rem' }}>Newsletter</SectionTitle>
-          <SubmitButton onClick={() => setIsPopupOpen(true)}>
-            Subscribe to Newsletter
-          </SubmitButton>
         </ConnectSection>
 
         <ContactSection>
@@ -218,11 +195,6 @@ const Footer = () => {
       <FooterNote>
         © {new Date().getFullYear()} Team 1515 MorTorq. All rights reserved.
       </FooterNote>
-      
-      <SubscribePopup 
-        isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)} 
-      />
     </FooterContainer>
   );
 };

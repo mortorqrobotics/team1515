@@ -214,7 +214,7 @@ const Navigation = () => {
     { to: "/outreach", label: "Outreach" },
     { to: "/leaders", label: "Team" },
     { to: "/sponsors", label: "Sponsors" },
-    { to: "/blog", label: "Blog" }
+    // { to: "/blog", label: "Blog" }
   ];
 
   return (
