@@ -1,10 +1,11 @@
 ---
-name: Yury Hassoon
+name: Ryan Gabbai
 role: President
-description: Hi, my name is Yury Hassoon. I am a senior in high school and one
-  of the two Co-Presidents on our team. Like everybody, I started as a freshman
-  and climbed through the robotics ranks from an Intro to Electrical-Specialist
-  to eventually become a Co-President. My role is to oversee the team and ensure
-  everyone is on task and on the path to success.
-image: /public/media/leaders/yury-min.JPG
+description: Hello I am Ryan Gabbai I am interested in bioengineering and chose
+  the class in the interest of pursuing the engineering part of the major. My
+  role in Mortorq 1515 is President and my objective as president is to secure
+  communication between parents and students along with reorganizing and
+  establishing a program in which we can prepare our students for the future of
+  engineering.
+image: /public/media/NZF_5893.jpg
 ---
