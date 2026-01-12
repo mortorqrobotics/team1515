@@ -12,5 +12,5 @@ description: Hello, my name is Xander Matcuk. I have been on Mortorq team 1515
   critical thinking to mechanical and leadership. Anyway, I can't wait to
   compete this season and I look forward to continue to work with, or at least
   stay in touch with, the team long after I graduate.
-image: /public/media/NZF_5931.jpg
+image: /public/media/leaders/NZF_5931 (1).jpg
 ---
