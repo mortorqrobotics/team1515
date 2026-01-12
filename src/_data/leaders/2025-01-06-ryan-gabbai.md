@@ -8,5 +8,5 @@ description: Hi! I'm Sophie Hong, a junior and this year’s Build Specialist. I
   year, and it’s been one of the most rewarding and memorable parts of my high
   school experience. I’m so excited for the 2025–2026 season and can’t wait to
   see what we’ll create together!
-image: /public/media/NZF_5896 (2).jpg
+image: /public/media/leaders/NZF_5896.jpg
 ---
