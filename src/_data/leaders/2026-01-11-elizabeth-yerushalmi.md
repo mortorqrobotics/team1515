@@ -10,5 +10,5 @@ description: Hi! My name is Elizabeth Yerushalmi, and I’m a senior in high
   In addition to teaching, I’m responsible for programming the robot to operate
   autonomously and integrating it with the teleoperation systems used by our
   drivers.
-image: /public/media/NZF_6035.jpg
+image: /public/media/leaders/NZF_6035.jpg
 ---
