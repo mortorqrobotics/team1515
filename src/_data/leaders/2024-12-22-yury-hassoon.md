@@ -1,5 +1,5 @@
 ---
-name: Ryan Gabbai
+name: Jake Rubel
 role: President
 description: Hello I am Ryan Gabbai I am interested in bioengineering and chose
   the class in the interest of pursuing the engineering part of the major. My
