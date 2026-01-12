@@ -1,11 +1,6 @@
 ---
 name: Jake Rubel
 role: President
-description: Hello I am Ryan Gabbai I am interested in bioengineering and chose
-  the class in the interest of pursuing the engineering part of the major. My
-  role in Mortorq 1515 is President and my objective as president is to secure
-  communication between parents and students along with reorganizing and
-  establishing a program in which we can prepare our students for the future of
-  engineering.
+description: Vice President and Team Captain for team.
 image: /public/media/leaders/NZF_5893.jpg
 ---
