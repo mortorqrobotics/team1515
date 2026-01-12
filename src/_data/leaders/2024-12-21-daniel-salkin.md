@@ -1,6 +1,6 @@
 ---
 name: Ryan Gabbai
-role: Vice President
-description: Vice President and Team Captain for team.
+role: President
+description: President
 image: /public/media/leaders/NZF_6026 (1).jpg
 ---
