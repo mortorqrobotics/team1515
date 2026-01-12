@@ -7,5 +7,5 @@ description: Hello I am Ryan Gabbai I am interested in bioengineering and chose
   communication between parents and students along with reorganizing and
   establishing a program in which we can prepare our students for the future of
   engineering.
-image: /public/media/leaders/NZF_6026 (1).jpg
+image: /public/media/leaders/NZF_5893.jpg
 ---
