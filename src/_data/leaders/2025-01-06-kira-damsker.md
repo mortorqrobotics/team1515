@@ -8,5 +8,5 @@ description: Hi, my name is Isabel Lo. I'm a junior and the machine specialist
   machinery, while providing team members with hands-on engineering experiences
   and manufacturing skills that can be used in the real world. I'm excited to
   see what we will get to build this year!
-image: /public/media/NZF_6033.jpg
+image: /public/media/leaders/NZF_6033.jpg
 ---
